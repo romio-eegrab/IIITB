@@ -1,0 +1,6 @@
+framework module Pods_IIITB {
+  umbrella header "Pods-IIITB-umbrella.h"
+
+  export *
+  module * { export * }
+}
