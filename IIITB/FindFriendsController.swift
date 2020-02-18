@@ -49,6 +49,7 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
         case viewProfile = "View Profile"
         case deleteProfile = "Delete Profile"
         case crashTheApp = "Crash"
+        case sendInvitation = "Send Invitation"
     }
     
     private let tableLayout: [(sectionTitle: sectionHeaders, rowTitles: [actionTitles])] = [
@@ -59,7 +60,8 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
             .viewMap,
             .viewProfile,
             .deleteProfile,
-            .crashTheApp
+            .crashTheApp,
+            .sendInvitation
             ]),
         (.friends, []),
         (.invites, [])
@@ -402,6 +404,16 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
                 manager.deleteAccount()
             case .crashTheApp:
                Crashlytics.sharedInstance().crash()
+            case .sendInvitation:
+                print("Send Invitation")
+                if let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8"), !name.absoluteString.isEmpty {
+                    let objectsToShare = [name]
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                    
+                    self.present(activityVC, animated: true, completion: nil)
+                }else  {
+                    // show alert for not available
+                }
             }
             
         case .friends:
