@@ -127,136 +127,12 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
         stopSharing()
     }
     
-    @IBAction func createInvite(_ sender: Any) {
-        
-        MRInvite.createInvite(with: session) { invite, error in
-            if error != nil {
-                print("Something went wrong: \(error?.localizedDescription ?? "")")
-            } else {
-                if let shareURL = invite?.shareURL {
-                    print("Invitation URL: \(shareURL)")
-                }
-            }
-        }
- }
-    
-    @IBAction func retriveInvite(_ sender: Any) {
-        
-        MRInvite.getAllInvites(with: session) { invites, error in
-            if error != nil {
-                print("Something went wrong: \(error?.localizedDescription ?? "")")
-            } else {
-                print(String(format: "Got %lu invitations", UInt(invites?.count ?? 0)))
-                if invites?.count != 0 {
-                    print(invites?[0].shareURL )
-                    print(invites?[0].friendKey.identifier)
-                }
-               
-                
-            }
-        }
-    }
-    
-    @IBAction func findAllFriend(_ sender: Any) {
-        
-        MRFriend.getAllFriends(with: session) { friends, error in
-            if error != nil {
-                print("Something went wrong: \(error?.localizedDescription ?? "")")
-            } else {
-                print(String(format: "Got %lu friends", UInt(friends?.count ?? 0)))
-               // print("name ",friends[0].name)
-            }
-        }
-    }
-    
-    @IBAction func getUserProfile(_ sender: Any) {
-        
-        MRFriend.getWith(session.key, session: session) { friend, error in
-            if error != nil {
-                print("Something went wrong: \(error?.localizedDescription ?? "")")
-            } else {
-                if let firstName = friend?.name {
-                    print("Got data for \(firstName)")
-                    print("sharing",friend?.sharing )
-                }
-               
-//                friend?.updateName("Pritam", with: self.session, completion: {
-//
-//                    friend,error in
-//                    if error != nil {
-//                        print("failed to update profile: \(error)")
-//                    }
-//                    else {
-//                        print("profile updated successfully")
-//                        print("friend",friend?.name)
-//                    }
-//                })
-                
-            }
-        }
-    }
-    
-    @IBAction func acceptInvitation(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Accept Invite", message: nil, preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "Invite Key"
-        }
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert, weak self] (_) in
-            if let alertText = alert?.textFields?[0].text, alertText.count > 0 {
-
-                MRInvite.accept(with: MREditorKey(identifier: alertText), session: self!.session, completion: { [weak self] friendResult, error in
-                    if friendResult != nil {
-
-                        print("name",friendResult?.name)
-
-                    } else if let thisError = error {
-                        print("Accept Invite error: " + thisError.localizedDescription)
-                    }
-                })
-               
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert, weak self] (_) in } ))
-            
-         present(alert, animated: true, completion: nil)
-    }
-    
-//                MRInvite.accept(withURL: inviteURL, session: session) { friend, error in
-//                    if error != nil {
-//                        print("Something went wrong: \(error?.localizedDescription ?? "")")
-//                    } else {
-//                        if let firstName = friend?.firstName {
-//                            print("Now sharing locations with \(firstName)")
-//                        }
-//                    }
-//                }
-                
-                
-                
-//        MRInvite.accept(with: inviteURL!, session: self!.session, completion: { friend, error in
-//                                    if error != nil {
-//                                        print("Something went wrong: \(error?.localizedDescription ?? "")")
-//                                    } else {
-//                                        if let firstName = friend?.name {
-//                                            print("Now sharing locations with \(firstName)")
-//                                        }
-//                                    }
-//                                })
-//                            }
-//                    }))
-      
-    
-    
+   
     
 }
 extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//         return manager.friends.count
-//    }
+
      func numberOfSections(in tableView: UITableView) -> Int {
         return tableLayout.count
     }
@@ -290,7 +166,9 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
         if indexPath.section == 1 {
        let    cell = tableView.dequeueReusableCell(withIdentifier: "FindPersonsCell", for: indexPath) as! FindPersonsCell
             cell.borderView.setCirculer()
-            cell.borderView.setBorder(color: UIColor.yellow.cgColor, borderWidth: 2)
+            cell.profileImg.setCirculer()
+            cell.borderView.setBorder(color: buttonBorderColor3.cgColor, borderWidth: 3)
+            
             //  cell.nameTitle.text = manager.friends[indexPath.row].name
             if indexPath.row < manager.friends.count {
                 cell.nameTitle?.text = manager.friends[indexPath.row].name
@@ -364,6 +242,9 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
                         if let thisError = error {
                             self?.handleFriendError(error: thisError)
                         } else {
+                            print("invitation link : ",thisSession.key.identifier)
+                            
+                            UserDefaults.standard.set(thisSession.key.identifier, forKey: "InvitationKey")
                             self?.manager.reloadData()
                         }
                     })
@@ -371,12 +252,26 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
             case .acceptInvite:
                 let alert = UIAlertController(title: "Accept Invite", message: nil, preferredStyle: .alert)
                 alert.addTextField { (textField) in
-                    textField.placeholder = "Invite Key"
+                    textField.placeholder = "Please enter Invite Key / Invite Link"
+                   
                 }
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert, weak self] (_) in
                     if let alertText = alert?.textFields?[0].text, alertText.count > 0 {
                         if let thisSession = self?.manager.session {
-                            MRInvite.accept(with: MREditorKey(identifier: alertText), session: thisSession, completion: { [weak self] friendResult, error in
+                            
+                            let getInputLink = alert?.textFields?[0].text
+                            let staticLink = "https://edit.meridianapps.com/sharing/invites/"
+                            var keyIdetifier = ""
+                            if getInputLink?.contains(staticLink) ?? false {
+                                
+                                keyIdetifier = getInputLink?.replacingOccurrences(of: staticLink, with: "") ?? "romio"
+                            }
+                            else {
+                                keyIdetifier = alert?.textFields?[0].text ?? "romio"
+                            }
+                           print(keyIdetifier)
+                            //alertText
+                            MRInvite.accept(with: MREditorKey(identifier: keyIdetifier), session: thisSession, completion: { [weak self] friendResult, error in
                                 if friendResult != nil {
                                     self?.manager.reloadData()
                                 } else if let thisError = error {
@@ -397,22 +292,31 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
                     navigationController?.pushViewController(mapController, animated: true)
                 }
             case .viewProfile:
-                let profileController = MSProfileTableViewController()
-                profileController.manager = manager
-                navigationController?.pushViewController(profileController, animated: true)
+//                let profileController = MSProfileTableViewController()
+//                profileController.manager = manager
+//                navigationController?.pushViewController(profileController, animated: true)
+
+                let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                profileVC.manager = manager
+                navigationController?.pushViewController(profileVC, animated: true)
             case .deleteProfile:
                 manager.deleteAccount()
             case .crashTheApp:
                Crashlytics.sharedInstance().crash()
             case .sendInvitation:
                 print("Send Invitation")
-                if let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8"), !name.absoluteString.isEmpty {
+    
+                if UserDefaults.standard.object(forKey: "InvitationKey") != nil {
+                    
+                    let urlString = "https://edit.meridianapps.com/sharing/invites/" +  (UserDefaults.standard.value(forKey: "InvitationKey") as! String)
+                    let name = URL(string: urlString )
                     let objectsToShare = [name]
-                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare as [Any], applicationActivities: nil)
                     
                     self.present(activityVC, animated: true, completion: nil)
-                }else  {
-                    // show alert for not available
+                }
+                else {
+                    self.showAlert(title: "Alert", message: "You don't have any invitation link to share", noOfButton: 1)
                 }
             }
             
@@ -426,10 +330,14 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
             }
         case .invites:
             if indexPath.row < manager.invites.count {
-                let inviteController = MSInviteTableViewController()
-                inviteController.manager = manager
-                inviteController.inviteKey = manager.invites[indexPath.row].key
-                navigationController?.pushViewController(inviteController, animated: true)
+//                let inviteController = MSInviteTableViewController()
+//                inviteController.manager = manager
+//                inviteController.inviteKey = manager.invites[indexPath.row].key
+//                navigationController?.pushViewController(inviteController, animated: true)
+
+                let inviteVC = self.storyboard?.instantiateViewController(withIdentifier: "InviteController") as! InviteController
+                self.navigationController?.pushViewController(inviteVC, animated: true )
+
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -489,7 +397,7 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
-            return 70
+            return 100
         }
         else {
            return 30

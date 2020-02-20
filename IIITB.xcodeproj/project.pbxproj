@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		877C27FA36C1CDEF4AD212B7 /* Pods_IIITB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED658E49802E6BA3C3FA27D /* Pods_IIITB.framework */; };
-		B20FE3C423F56A5D00ECA423 /* MSFriendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20FE3C323F56A5C00ECA423 /* MSFriendManager.swift */; };
 		B21BCF4B23FA5E9900AA968C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B21BCF4A23FA5E9800AA968C /* GoogleService-Info.plist */; };
 		B22D763A23EBEFCC00CFDB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22D763923EBEFCC00CFDB8D /* AppDelegate.swift */; };
 		B22D763F23EBEFCC00CFDB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22D763D23EBEFCC00CFDB8D /* Main.storyboard */; };
@@ -28,6 +27,7 @@
 		B243682923F2AE3B0095D56F /* FindProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B243682823F2AE3A0095D56F /* FindProfessorController.swift */; };
 		B243682B23F2AE630095D56F /* FindFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B243682A23F2AE630095D56F /* FindFriendsController.swift */; };
 		B243682D23F2B2680095D56F /* CurrentLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B243682C23F2B2670095D56F /* CurrentLocationController.swift */; };
+		B2AD7AEB23FD601C00289A78 /* InviteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD7AEA23FD601C00289A78 /* InviteController.swift */; };
 		B2B69C3023ED2EB200AA114C /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2B69C2F23ED2EB200AA114C /* ColorAssets.xcassets */; };
 		B2B69C4123ED445E00AA114C /* UIButonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B69C3723ED445800AA114C /* UIButonExtension.swift */; };
 		B2B69C4223ED445E00AA114C /* LabelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B69C3823ED445800AA114C /* LabelClass.swift */; };
@@ -43,17 +43,20 @@
 		B2E25BDD23F3CC3F008862FC /* FindPersonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E25BDC23F3CC3F008862FC /* FindPersonsCell.xib */; };
 		B2E25BDF23F3CF8E008862FC /* SharedLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E25BDE23F3CF8E008862FC /* SharedLocationView.xib */; };
 		B2E25BE123F3CFCA008862FC /* SharedLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E25BE023F3CFCA008862FC /* SharedLocationView.swift */; };
-		B2EC18C223F670DD00627739 /* MSFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC18BE23F670DB00627739 /* MSFriendTableViewController.swift */; };
-		B2EC18C323F670DD00627739 /* MSFriendMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC18BF23F670DB00627739 /* MSFriendMapViewController.swift */; };
-		B2EC18C423F670DD00627739 /* MSInviteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC18C023F670DC00627739 /* MSInviteTableViewController.swift */; };
-		B2EC18C523F670DD00627739 /* MSProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC18C123F670DC00627739 /* MSProfileTableViewController.swift */; };
 		B2EC18C723F68A5400627739 /* DemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC18C623F68A5400627739 /* DemoController.swift */; };
+		B2F0C58723FD33AB00163ABA /* MSFriendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C58623FD33AA00163ABA /* MSFriendManager.swift */; };
+		B2F0C58923FD33D500163ABA /* MSFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C58823FD33D400163ABA /* MSFriendTableViewController.swift */; };
+		B2F0C58B23FD33ED00163ABA /* MSProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C58A23FD33ED00163ABA /* MSProfileTableViewController.swift */; };
+		B2F0C58D23FD33FF00163ABA /* MSInviteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C58C23FD33FF00163ABA /* MSInviteTableViewController.swift */; };
+		B2F0C58F23FD341800163ABA /* MSFriendMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C58E23FD341800163ABA /* MSFriendMapViewController.swift */; };
+		B2F0C59123FD3BBE00163ABA /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C59023FD3BBE00163ABA /* ProfileController.swift */; };
+		B2F0C59323FD3D8D00163ABA /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2F0C59223FD3D8D00163ABA /* HeaderView.xib */; };
+		B2F0C59523FD3DB300163ABA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0C59423FD3DB300163ABA /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6FF3502CA4EB25198121B582 /* Pods-IIITB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IIITB.release.xcconfig"; path = "Target Support Files/Pods-IIITB/Pods-IIITB.release.xcconfig"; sourceTree = "<group>"; };
 		7FE42FA071C0ABC40B220BD0 /* Pods-IIITB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IIITB.debug.xcconfig"; path = "Target Support Files/Pods-IIITB/Pods-IIITB.debug.xcconfig"; sourceTree = "<group>"; };
-		B20FE3C323F56A5C00ECA423 /* MSFriendManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSFriendManager.swift; path = ../MSFriendManager.swift; sourceTree = "<group>"; };
 		B21BCF4923FA5D3200AA968C /* IIITB.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IIITB.entitlements; sourceTree = "<group>"; };
 		B21BCF4A23FA5E9800AA968C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B22D763623EBEFCC00CFDB8D /* IIITB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IIITB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +79,7 @@
 		B243682823F2AE3A0095D56F /* FindProfessorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProfessorController.swift; sourceTree = "<group>"; };
 		B243682A23F2AE630095D56F /* FindFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsController.swift; sourceTree = "<group>"; };
 		B243682C23F2B2670095D56F /* CurrentLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationController.swift; sourceTree = "<group>"; };
+		B2AD7AEA23FD601C00289A78 /* InviteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteController.swift; sourceTree = "<group>"; };
 		B2B69C2F23ED2EB200AA114C /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		B2B69C3723ED445800AA114C /* UIButonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButonExtension.swift; sourceTree = "<group>"; };
 		B2B69C3823ED445800AA114C /* LabelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelClass.swift; sourceTree = "<group>"; };
@@ -91,11 +95,15 @@
 		B2E25BDC23F3CC3F008862FC /* FindPersonsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPersonsCell.xib; sourceTree = "<group>"; };
 		B2E25BDE23F3CF8E008862FC /* SharedLocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedLocationView.xib; sourceTree = "<group>"; };
 		B2E25BE023F3CFCA008862FC /* SharedLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocationView.swift; sourceTree = "<group>"; };
-		B2EC18BE23F670DB00627739 /* MSFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSFriendTableViewController.swift; path = ../MSFriendTableViewController.swift; sourceTree = "<group>"; };
-		B2EC18BF23F670DB00627739 /* MSFriendMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSFriendMapViewController.swift; path = ../MSFriendMapViewController.swift; sourceTree = "<group>"; };
-		B2EC18C023F670DC00627739 /* MSInviteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSInviteTableViewController.swift; path = ../MSInviteTableViewController.swift; sourceTree = "<group>"; };
-		B2EC18C123F670DC00627739 /* MSProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSProfileTableViewController.swift; path = ../MSProfileTableViewController.swift; sourceTree = "<group>"; };
 		B2EC18C623F68A5400627739 /* DemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoController.swift; sourceTree = "<group>"; };
+		B2F0C58623FD33AA00163ABA /* MSFriendManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSFriendManager.swift; path = "../../../Class File/meridian-ios-sdk-5.6.0/MeridianSwiftSamples/MeridianSwiftSamples/MSFriendManager.swift"; sourceTree = "<group>"; };
+		B2F0C58823FD33D400163ABA /* MSFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSFriendTableViewController.swift; path = "../../../Class File/meridian-ios-sdk-5.6.0/MeridianSwiftSamples/MeridianSwiftSamples/MSFriendTableViewController.swift"; sourceTree = "<group>"; };
+		B2F0C58A23FD33ED00163ABA /* MSProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSProfileTableViewController.swift; path = "../../../Class File/meridian-ios-sdk-5.6.0/MeridianSwiftSamples/MeridianSwiftSamples/MSProfileTableViewController.swift"; sourceTree = "<group>"; };
+		B2F0C58C23FD33FF00163ABA /* MSInviteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSInviteTableViewController.swift; path = "../../../Class File/meridian-ios-sdk-5.6.0/MeridianSwiftSamples/MeridianSwiftSamples/MSInviteTableViewController.swift"; sourceTree = "<group>"; };
+		B2F0C58E23FD341800163ABA /* MSFriendMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MSFriendMapViewController.swift; path = "../../../Class File/meridian-ios-sdk-5.6.0/MeridianSwiftSamples/MeridianSwiftSamples/MSFriendMapViewController.swift"; sourceTree = "<group>"; };
+		B2F0C59023FD3BBE00163ABA /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		B2F0C59223FD3D8D00163ABA /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		B2F0C59423FD3DB300163ABA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DED658E49802E6BA3C3FA27D /* Pods_IIITB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IIITB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,8 +187,16 @@
 				B2B69C3C23ED445B00AA114C /* SingleToneClass.swift */,
 				B2B69C3F23ED445C00AA114C /* TextfieldPlaceholderColor.swift */,
 				B2B69C3723ED445800AA114C /* UIButonExtension.swift */,
+				B2F0C59023FD3BBE00163ABA /* ProfileController.swift */,
+				B2AD7AEA23FD601C00289A78 /* InviteController.swift */,
+				B2F0C59223FD3D8D00163ABA /* HeaderView.xib */,
+				B2F0C59423FD3DB300163ABA /* HeaderView.swift */,
+				B2F0C58623FD33AA00163ABA /* MSFriendManager.swift */,
+				B2F0C58C23FD33FF00163ABA /* MSInviteTableViewController.swift */,
+				B2F0C58823FD33D400163ABA /* MSFriendTableViewController.swift */,
+				B2F0C58A23FD33ED00163ABA /* MSProfileTableViewController.swift */,
+				B2F0C58E23FD341800163ABA /* MSFriendMapViewController.swift */,
 				B243682623F2789E0095D56F /* launch_icon.png */,
-				B23F12A723FBC1CC00A9FF75 /* Meridian File */,
 				B22D763D23EBEFCC00CFDB8D /* Main.storyboard */,
 				B2B69C2F23ED2EB200AA114C /* ColorAssets.xcassets */,
 				B22D764023EBEFD200CFDB8D /* Assets.xcassets */,
@@ -189,18 +205,6 @@
 				B21BCF4A23FA5E9800AA968C /* GoogleService-Info.plist */,
 			);
 			path = IIITB;
-			sourceTree = "<group>";
-		};
-		B23F12A723FBC1CC00A9FF75 /* Meridian File */ = {
-			isa = PBXGroup;
-			children = (
-				B2EC18BF23F670DB00627739 /* MSFriendMapViewController.swift */,
-				B20FE3C323F56A5C00ECA423 /* MSFriendManager.swift */,
-				B2EC18BE23F670DB00627739 /* MSFriendTableViewController.swift */,
-				B2EC18C023F670DC00627739 /* MSInviteTableViewController.swift */,
-				B2EC18C123F670DC00627739 /* MSProfileTableViewController.swift */,
-			);
-			path = "Meridian File";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +279,7 @@
 				B2B69C3023ED2EB200AA114C /* ColorAssets.xcassets in Resources */,
 				B2E25BDD23F3CC3F008862FC /* FindPersonsCell.xib in Resources */,
 				B2E25BDF23F3CF8E008862FC /* SharedLocationView.xib in Resources */,
+				B2F0C59323FD3D8D00163ABA /* HeaderView.xib in Resources */,
 				B22D764423EBEFD200CFDB8D /* LaunchScreen.storyboard in Resources */,
 				B21BCF4B23FA5E9900AA968C /* GoogleService-Info.plist in Resources */,
 				B22D765A23EC2A1200CFDB8D /* TableViewCell.xib in Resources */,
@@ -374,12 +379,10 @@
 				B22D765623EC1EF300CFDB8D /* RegistrationController.swift in Sources */,
 				B22D764E23EBFED200CFDB8D /* SelectUserController.swift in Sources */,
 				B2E25BE123F3CFCA008862FC /* SharedLocationView.swift in Sources */,
-				B20FE3C423F56A5D00ECA423 /* MSFriendManager.swift in Sources */,
-				B2EC18C423F670DD00627739 /* MSInviteTableViewController.swift in Sources */,
 				B22D765823EC293E00CFDB8D /* TableCell.swift in Sources */,
 				B2B69C4223ED445E00AA114C /* LabelClass.swift in Sources */,
-				B2EC18C223F670DD00627739 /* MSFriendTableViewController.swift in Sources */,
 				B22D765023EC134300CFDB8D /* TabController.swift in Sources */,
+				B2F0C59123FD3BBE00163ABA /* ProfileController.swift in Sources */,
 				B22D764C23EBF90F00CFDB8D /* LoginController.swift in Sources */,
 				B2B69C4923ED445E00AA114C /* TextfieldPlaceholderColor.swift in Sources */,
 				B2B69C4A23ED445E00AA114C /* ScreenSize Extension.swift in Sources */,
@@ -388,16 +391,21 @@
 				B243682B23F2AE630095D56F /* FindFriendsController.swift in Sources */,
 				B2B69C4523ED445E00AA114C /* ExtensionClass.swift in Sources */,
 				B22D765423EC1ACA00CFDB8D /* SimplyOver.swift in Sources */,
-				B2EC18C523F670DD00627739 /* MSProfileTableViewController.swift in Sources */,
+				B2F0C59523FD3DB300163ABA /* HeaderView.swift in Sources */,
 				B243682D23F2B2680095D56F /* CurrentLocationController.swift in Sources */,
-				B2EC18C323F670DD00627739 /* MSFriendMapViewController.swift in Sources */,
+				B2F0C58F23FD341800163ABA /* MSFriendMapViewController.swift in Sources */,
+				B2AD7AEB23FD601C00289A78 /* InviteController.swift in Sources */,
 				B2EC18C723F68A5400627739 /* DemoController.swift in Sources */,
 				B2B69C4723ED445E00AA114C /* Network Check.swift in Sources */,
+				B2F0C58B23FD33ED00163ABA /* MSProfileTableViewController.swift in Sources */,
 				B22D763A23EBEFCC00CFDB8D /* AppDelegate.swift in Sources */,
 				B2B69C4823ED445E00AA114C /* ActivityHelper.swift in Sources */,
 				B2E25BDB23F3CC21008862FC /* FindPersonsCell.swift in Sources */,
 				B23F12A623FBB96400A9FF75 /* MenuView.swift in Sources */,
+				B2F0C58723FD33AB00163ABA /* MSFriendManager.swift in Sources */,
 				B2B69C4323ED445E00AA114C /* FetchJSON.swift in Sources */,
+				B2F0C58923FD33D500163ABA /* MSFriendTableViewController.swift in Sources */,
+				B2F0C58D23FD33FF00163ABA /* MSInviteTableViewController.swift in Sources */,
 				B243682923F2AE3B0095D56F /* FindProfessorController.swift in Sources */,
 				B2B69C4123ED445E00AA114C /* UIButonExtension.swift in Sources */,
 				B22D765223EC13BC00CFDB8D /* HomeController.swift in Sources */,

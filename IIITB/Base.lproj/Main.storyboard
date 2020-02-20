@@ -49,7 +49,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iiitb icon" translatesAutoresizingMaskIntoConstraints="NO" id="tBM-Uo-TBl">
-                                                <rect key="frame" x="115.5" y="65.5" width="183" height="174"/>
+                                                <rect key="frame" x="199" y="144.5" width="16" height="16"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU2-Lg-cMq">
                                                 <rect key="frame" x="35" y="380" width="344" height="55"/>
@@ -533,35 +533,51 @@
             </objects>
             <point key="canvasLocation" x="-2141" y="1197"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="Kna-g7-BoV">
+        <!--Invite Controller-->
+        <scene sceneID="ikT-YA-V9s">
             <objects>
-                <tableViewController storyboardIdentifier="MSFriendTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s1W-f7-uZk" customClass="MSFriendTableViewController" customModule="IIITB" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" sectionFooterHeight="28" id="CB6-jZ-MNu">
+                <viewController storyboardIdentifier="InviteController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oau-ds-GgJ" customClass="InviteController" customModule="IIITB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gtY-4y-4W7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FindPersonsCell" id="ScS-7V-Shh" customClass="FindPersonsCell" customModule="IIITB" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ScS-7V-Shh" id="1br-d5-91t">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="s1W-f7-uZk" id="5Zp-Bm-O0T"/>
-                            <outlet property="delegate" destination="s1W-f7-uZk" id="gcu-jX-7jJ"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="unh-Wj-D5w"/>
-                    <size key="freeformSize" width="414" height="896"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U6Q-r6-efa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="fzy-QL-j1n"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="om0-tA-Nb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1797" y="2124"/>
+            <point key="canvasLocation" x="-3065" y="2125"/>
+        </scene>
+        <!--Profile Controller-->
+        <scene sceneID="vsa-1e-1GH">
+            <objects>
+                <viewController storyboardIdentifier="ProfileController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sS6-Oz-1rp" customClass="ProfileController" customModule="IIITB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8ik-xT-rU2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7x-Q0-P4I">
+                                <rect key="frame" x="0.0" y="84" width="414" height="718"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sxh-qD-F0k" firstAttribute="trailing" secondItem="A7x-Q0-P4I" secondAttribute="trailing" id="7h1-rm-WKr"/>
+                            <constraint firstItem="A7x-Q0-P4I" firstAttribute="top" secondItem="Sxh-qD-F0k" secondAttribute="top" constant="40" id="FzA-aS-UXZ"/>
+                            <constraint firstItem="Sxh-qD-F0k" firstAttribute="bottom" secondItem="A7x-Q0-P4I" secondAttribute="bottom" constant="60" id="XdX-QI-hUk"/>
+                            <constraint firstItem="A7x-Q0-P4I" firstAttribute="leading" secondItem="Sxh-qD-F0k" secondAttribute="leading" id="oN9-Mh-pN2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sxh-qD-F0k"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileTblView" destination="A7x-Q0-P4I" id="PKv-bE-22X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nn4-ji-34m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2197.1014492753625" y="1853.5714285714284"/>
         </scene>
         <!--Find Friends-->
         <scene sceneID="cqf-18-KPw">
@@ -571,76 +587,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJs-iK-sFk">
-                                <rect key="frame" x="20" y="194" width="374" height="55"/>
-                                <color key="backgroundColor" name="view_bg_color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="6ss-Ur-jve"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="CREATE INVITE">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="createInvite:" destination="QNt-Ks-f3E" eventType="touchUpInside" id="vz5-bV-RNA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-b8-oQq">
-                                <rect key="frame" x="20" y="261" width="374" height="55"/>
-                                <color key="backgroundColor" name="view_bg_color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="caE-Ta-hLx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="RETRIVE INVITE">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="retriveInvite:" destination="QNt-Ks-f3E" eventType="touchUpInside" id="o35-UF-fkZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHN-T6-BjT">
-                                <rect key="frame" x="20" y="328" width="374" height="55"/>
-                                <color key="backgroundColor" name="view_bg_color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="NR5-0o-BxT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="FIND ALL FRIEND">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="findAllFriend:" destination="QNt-Ks-f3E" eventType="touchUpInside" id="NtJ-hm-eYk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTF-80-UdV">
-                                <rect key="frame" x="20" y="391" width="374" height="55"/>
-                                <color key="backgroundColor" name="view_bg_color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="QA3-p0-yPr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="GET USER PROFILE">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="getUserProfile:" destination="QNt-Ks-f3E" eventType="touchUpInside" id="eEp-7C-GwA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5D-wD-foO">
-                                <rect key="frame" x="20" y="454" width="374" height="55"/>
-                                <color key="backgroundColor" name="view_bg_color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="Eql-UF-gTp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Accept Invitation">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="acceptInvitation:" destination="QNt-Ks-f3E" eventType="touchUpInside" id="j2W-qM-Rgp"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r36-82-55X">
                                 <rect key="frame" x="0.0" y="199" width="414" height="549"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -649,25 +595,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="G5D-wD-foO" firstAttribute="leading" secondItem="eTF-80-UdV" secondAttribute="leading" id="8eu-Wl-s2U"/>
-                            <constraint firstItem="G5D-wD-foO" firstAttribute="trailing" secondItem="eTF-80-UdV" secondAttribute="trailing" id="Flt-Cz-Uwi"/>
                             <constraint firstItem="DUu-Gd-3Ug" firstAttribute="trailing" secondItem="r36-82-55X" secondAttribute="trailing" id="JT8-V2-hXS"/>
-                            <constraint firstItem="pHN-T6-BjT" firstAttribute="top" secondItem="VRm-b8-oQq" secondAttribute="bottom" constant="12" id="Jpk-RE-m7P"/>
                             <constraint firstItem="r36-82-55X" firstAttribute="top" secondItem="DUu-Gd-3Ug" secondAttribute="top" constant="155" id="T1h-H3-J7k"/>
                             <constraint firstItem="r36-82-55X" firstAttribute="leading" secondItem="DUu-Gd-3Ug" secondAttribute="leading" id="TU6-44-x9C"/>
-                            <constraint firstItem="eTF-80-UdV" firstAttribute="trailing" secondItem="pHN-T6-BjT" secondAttribute="trailing" id="UBO-6E-L4i"/>
-                            <constraint firstItem="OJs-iK-sFk" firstAttribute="leading" secondItem="DUu-Gd-3Ug" secondAttribute="leading" constant="20" id="Vb0-0u-tte"/>
-                            <constraint firstItem="VRm-b8-oQq" firstAttribute="trailing" secondItem="OJs-iK-sFk" secondAttribute="trailing" id="Vfl-g0-ZCq"/>
-                            <constraint firstItem="eTF-80-UdV" firstAttribute="leading" secondItem="pHN-T6-BjT" secondAttribute="leading" id="c9e-s3-ewq"/>
-                            <constraint firstItem="DUu-Gd-3Ug" firstAttribute="trailing" secondItem="OJs-iK-sFk" secondAttribute="trailing" constant="20" id="gzY-a9-QZD"/>
-                            <constraint firstItem="pHN-T6-BjT" firstAttribute="leading" secondItem="VRm-b8-oQq" secondAttribute="leading" id="jlh-z5-4eq"/>
-                            <constraint firstItem="pHN-T6-BjT" firstAttribute="trailing" secondItem="VRm-b8-oQq" secondAttribute="trailing" id="l4W-ce-PFg"/>
-                            <constraint firstItem="G5D-wD-foO" firstAttribute="top" secondItem="eTF-80-UdV" secondAttribute="bottom" constant="8" id="oxT-DX-4ve"/>
-                            <constraint firstItem="VRm-b8-oQq" firstAttribute="top" secondItem="OJs-iK-sFk" secondAttribute="bottom" constant="12" id="tqX-Xy-Ndo"/>
-                            <constraint firstItem="OJs-iK-sFk" firstAttribute="top" secondItem="DUu-Gd-3Ug" secondAttribute="top" constant="150" id="ury-ZS-ql8"/>
-                            <constraint firstItem="VRm-b8-oQq" firstAttribute="leading" secondItem="OJs-iK-sFk" secondAttribute="leading" id="wfM-WD-zyW"/>
                             <constraint firstItem="DUu-Gd-3Ug" firstAttribute="bottom" secondItem="r36-82-55X" secondAttribute="bottom" constant="65" id="y3b-48-Fr8"/>
-                            <constraint firstItem="eTF-80-UdV" firstAttribute="top" secondItem="pHN-T6-BjT" secondAttribute="bottom" constant="8" id="yx5-LQ-GeU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DUu-Gd-3Ug"/>
                     </view>
@@ -1397,9 +1328,6 @@
         </namedColor>
         <namedColor name="placeholder_color">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="view_bg_color">
-            <color red="0.74117647058823533" green="0.93725490196078431" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -24,3 +24,11 @@ extension UIViewController{
     
     
 }
+class CustomUITextField: UITextField {
+     func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+        if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+            return true
+        }
+        return super.canPerformAction(action, withSender: sender)
+    }
+}

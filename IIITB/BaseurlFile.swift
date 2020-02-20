@@ -42,6 +42,7 @@ let locationAPI = "https://edit.meridianapps.com/api/locations/" + appKeyEEgrab
 
 let buttonBorderColor1 = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
 let buttonBorderColor2 = UIColor(red: 219/255, green: 252/255, blue: 251/255, alpha: 1.0)
+let buttonBorderColor3 = UIColor(red: 255/255, green: 237/255, blue: 141/255, alpha: 1.0)
 let tabViewColor = UIColor(red: 1, green: 197/255, blue: 0, alpha: 1.0)
 let placeholderColor = UIColor(red: 142/255, green: 142/255, blue: 142/255, alpha: 1.0)
 let shadowColor_textFieldViewColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16)
