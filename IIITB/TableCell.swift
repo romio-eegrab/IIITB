@@ -10,7 +10,8 @@ import UIKit
 
 class TableCell: UITableViewCell {
 
-   
-    @IBOutlet weak var showlbl: UILabel!
+    @IBOutlet weak var titlelbl: UILabel!
+    
+    @IBOutlet weak var descriptionlbl: UILabel!
     
 }

@@ -34,15 +34,19 @@ class TabController: UITabBarController {
         self.tabBar.isHidden = true
         navigationController?.navigationBar.barTintColor = loginHeaderViewColor
         
-        
-        self.tabView.frame = CGRect(x: 0, y: (self.view.frame.height - 85), width: self.view.frame.width, height: 85)
+        if (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneX) || ( UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneXR) {
+           self.tabView.frame = CGRect(x: 0, y: (self.view.frame.height - 85), width: self.view.frame.width, height: 85)
+            
+        }
+        else {
+            self.tabView.frame = CGRect(x: 0, y: (self.view.frame.height - 70), width: self.view.frame.width, height: 70)
+        }
+        self.headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 130)
         myFriendButton.backgroundColor = tabViewColor
         mapButton.backgroundColor = UIColor.white
         professorButton.backgroundColor = tabViewColor
         
         self.view.addSubview(self.tabView)
-        
-        self.headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 130)
         self.view.addSubview(headerView)
         
         menuView = MenuView.instanceFromNib() as! MenuView
@@ -93,23 +97,14 @@ class TabController: UITabBarController {
     @IBAction func menuButtonAction(_ sender: Any) {
         
         menuTabButtonAction()
+       // showAlert(title: "Alert", message: "This part is under development", noOfButton: 1)
     }
     @objc func menuTabButtonAction() {
         
         if menuView.frame.origin.x < 0 {
             
-            UIView.animate(withDuration: 0.3, animations: {() -> Void in
-                
-                if (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneX) || ( UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneXR) {
-                    self.menuView.frame = CGRect(x: CGFloat(0), y: (0), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height ))
-                }
-                else if (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphone5) {
-                    self.menuView.frame = CGRect(x: CGFloat(0), y: (70), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height - 70 ))
-                }
-                else {
-                    self.menuView.frame = CGRect(x: CGFloat(0), y: (80), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height - 80 ))
-                    
-                }
+            UIView.animate(withDuration: 0.4, animations: {() -> Void in
+                 self.menuView.frame = CGRect(x: CGFloat(0), y: (0), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height ))
                 self.updateFocusIfNeeded()
                 self.updateViewConstraints()
                 self.menuView.isHidden = false
@@ -125,18 +120,10 @@ class TabController: UITabBarController {
     
     func slideViewHideAnimation() {
         UIView.animate(withDuration: 0.4, animations: {() -> Void in
+             self.menuView.frame = CGRect(x: CGFloat( -self.view.frame.width), y: CGFloat(0), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height))
             
-            if (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneX) || (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneXR) {
-                self.menuView.frame = CGRect(x: CGFloat( -self.view.frame.width), y: CGFloat(0), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height))
-            }
-                
-            else if (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphone5)  {
-                self.menuView.frame = CGRect(x: CGFloat( -self.view.frame.width), y: CGFloat(70), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height - 70))
-            }
-            else {
-                self.menuView.frame = CGRect(x: CGFloat( -self.view.frame.width), y: CGFloat(80), width: CGFloat(self.view.frame.width), height: CGFloat(self.view.frame.size.height - 80))
-            }
         }, completion: {(_ finished: Bool) -> Void in
+            
             self.menuView.isHidden = true
         })
        

@@ -26,7 +26,9 @@ class FindProfessorController: UIViewController {
         professorsTblview.dataSource = self
         professorsTblview.delegate = self
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        showAlert(title: "Alert", message: "This part is under development", noOfButton: 1)
+    }
 
 
 }
@@ -44,6 +46,7 @@ extension FindProfessorController : UITableViewDataSource,UITableViewDelegate {
         cell.borderView.setBorder(color: UIColor.yellow.cgColor, borderWidth: 2)
         cell.nameTitle.text = "Romio Prasad Bera"
         cell.distanceTitle.text = "800 meter"
+        cell.profileImg.contentMode = .scaleAspectFit
         cell.selectionStyle = .none
         return cell
     }

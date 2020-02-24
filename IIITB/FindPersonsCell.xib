@@ -85,7 +85,7 @@
         </view>
     </objects>
     <resources>
-        <image name="persons icon" width="34" height="36.5"/>
+        <image name="persons icon" width="25" height="27"/>
         <namedColor name="lbl_tint_color">
             <color red="0.3411764705882353" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -17,9 +17,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVc-0L-rHk">
-                    <rect key="frame" x="12" y="13" width="390" height="84"/>
-                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oS-vN-bbY">
+                    <rect key="frame" x="12" y="44.5" width="130" height="21.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="hrH-zF-TMF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="19"/>
+                    <color key="textColor" name="lbl_tint_color"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVc-0L-rHk">
+                    <rect key="frame" x="154" y="13" width="248" height="84"/>
+                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                     <color key="textColor" name="lbl_tint_color"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -36,19 +45,23 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="IVc-0L-rHk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="DPB-ZF-MnP"/>
-                <constraint firstItem="IVc-0L-rHk" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" constant="-16" id="J21-m8-2y4"/>
-                <constraint firstItem="IVc-0L-rHk" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="XpY-Z7-i7d"/>
                 <constraint firstAttribute="bottom" secondItem="ZTl-PT-X4c" secondAttribute="bottom" id="btM-mX-VjW"/>
+                <constraint firstItem="6oS-vN-bbY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="d6C-gB-Fa5"/>
+                <constraint firstItem="IVc-0L-rHk" firstAttribute="centerY" secondItem="6oS-vN-bbY" secondAttribute="centerY" id="i27-UH-tDE"/>
                 <constraint firstAttribute="trailing" secondItem="ZTl-PT-X4c" secondAttribute="trailing" id="kVP-U5-MCF"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IVc-0L-rHk" secondAttribute="trailing" constant="12" id="o6g-5p-yb4"/>
+                <constraint firstItem="6oS-vN-bbY" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="q6i-0W-3G7"/>
+                <constraint firstItem="IVc-0L-rHk" firstAttribute="leading" secondItem="6oS-vN-bbY" secondAttribute="trailing" constant="12" id="qzV-C5-NV7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IVc-0L-rHk" secondAttribute="trailing" constant="12" id="wy2-nj-f5V"/>
+                <constraint firstItem="IVc-0L-rHk" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" constant="-16" id="yEb-zP-OiL"/>
                 <constraint firstItem="ZTl-PT-X4c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zof-cH-Dw5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="showlbl" destination="IVc-0L-rHk" id="43r-qu-Psx"/>
+                <outlet property="descriptionlbl" destination="IVc-0L-rHk" id="43r-qu-Psx"/>
+                <outlet property="titlelbl" destination="6oS-vN-bbY" id="GqU-CJ-UP6"/>
             </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="102.45535714285714"/>
         </view>
     </objects>
     <resources>

@@ -11,6 +11,7 @@ import Meridian
 
 class HomeController: UIViewController,MRLocationManagerDelegate {
 
+    @IBOutlet weak var helpViewBottomSpaceConstant: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     var mapViewController: MRMapViewController?
     var mapViewContainer: UIView?
@@ -26,9 +27,19 @@ class HomeController: UIViewController,MRLocationManagerDelegate {
         containerView.layer.shadowRadius = 4
         containerView.layer.shadowOffset = CGSize(width: 1, height:1)
         containerView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor
-        mapViewContainer = UIView(frame: CGRect(x: 0, y:20, width: view.bounds.size.width - 24, height:containerView.frame.height - 40))
        
-        updateViewConstraints()
+       
+        if (UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneX) || ( UIDevice.Display.typeIsLike == UIDevice.DisplayType.iphoneXR) {
+             mapViewContainer = UIView(frame: CGRect(x: 0, y:20, width: view.bounds.size.width - 24, height:containerView.frame.height - 40))
+            helpViewBottomSpaceConstant.constant = 60.0
+        }
+        else {
+             mapViewContainer = UIView(frame: CGRect(x: 0, y:0, width: view.bounds.size.width - 24, height:380))
+             helpViewBottomSpaceConstant.constant = 80.0
+        }
+
+        self.updateFocusIfNeeded()
+        self.updateViewConstraints()
         if let mapViewContainer = mapViewContainer {
             self.containerView.addSubview(mapViewContainer)
         }
@@ -53,6 +64,7 @@ class HomeController: UIViewController,MRLocationManagerDelegate {
         mapViewContainer.addSubview(mapViewController.view)
         mapViewController.didMove(toParent: self)
         
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,11 +80,4 @@ class HomeController: UIViewController,MRLocationManagerDelegate {
 
     @IBAction func supportButtonAction(_ sender: Any) {
     }
-    
-    @IBAction func logoutAction(_ sender: Any) {
-        
-       self.navigationController?.popToRootViewController(animated: true)
-        // navigationController?.popViewController(animated: true)
-    }
-    
 }

@@ -27,7 +27,7 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
     @IBOutlet weak var friendsTblview: UITableView!
     var sharedLocationView = SharedLocationView()
     var session = MRSharingSession()
-    
+    var inviteKey: MREditorKey?
     var manager: MSFriendManager {
         get {
             return MSFriendManager.manager1 // overridden by subclass
@@ -48,7 +48,7 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
         case viewMap = "View Map"
         case viewProfile = "View Profile"
         case deleteProfile = "Delete Profile"
-        case crashTheApp = "Crash"
+       // case crashTheApp = "Crash"
         case sendInvitation = "Send Invitation"
     }
     
@@ -60,14 +60,13 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
             .viewMap,
             .viewProfile,
             .deleteProfile,
-            .crashTheApp,
             .sendInvitation
             ]),
         (.friends, []),
         (.invites, [])
     ]
     
-   
+   // .crashTheApp,
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,6 +103,7 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
       //  startSharing()
         
         print("shard locaton")
+        /*
         let editorKey = MREditorKey(forMap: mapKeyEEgrab, app: appKeyEEgrab)
         let  password = UUID().uuidString
         MRSharingSession.createAccount(withPassword: password, name: "PRITAM", appKey: editorKey) { session, error in
@@ -120,6 +120,16 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
                 self.session.delegate = self
             }
         }
+ */
+        let count = manager.invites.count
+        self.inviteKey = manager.invites[count - 1].key
+        if let url = getInvite()?.shareURL {
+            let activityController = UIActivityViewController.init(activityItems: [url], applicationActivities: nil)
+            present(activityController, animated: true, completion: nil)
+        }
+        else {
+            self.showAlert(title: "Alert", message: "You don't have any invitation link to share", noOfButton: 1)
+        }
     }
     @objc func stopSharingButtonAction(notification : Notification) {
         
@@ -127,7 +137,14 @@ class FindFriendsController: UIViewController,MSFriendManagerObserver {
         stopSharing()
     }
     
-   
+    private func getInvite() -> MRInvite? {
+        
+        let invites = manager.invites
+        for invite in invites where invite.key == inviteKey {
+            return invite
+        }
+        return nil
+    }
     
 }
 extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
@@ -176,6 +193,9 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
             }
          //   print("distance : ", manager.friends[indexPath.row].travelDistance ?? 44 )
      //    print("imageUrl : " , manager.friends[indexPath.row].imageURL)
+            print("distance : ",manager.friends[indexPath.row].travelTime)
+            print("distance 2 : ",manager.friends[indexPath.row].travelDistance)
+            print("distance 3 : ",manager.friends[indexPath.row].location?.point.x)
             cell.distanceTitle.text = String(Int( manager.friends[indexPath.row].travelDistance ?? 0)) + " meter"
             cell.selectionStyle = .none
              return cell
@@ -301,19 +321,16 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
                 navigationController?.pushViewController(profileVC, animated: true)
             case .deleteProfile:
                 manager.deleteAccount()
-            case .crashTheApp:
-               Crashlytics.sharedInstance().crash()
+//            case .crashTheApp:
+//                Crashlytics.sharedInstance().crash()
             case .sendInvitation:
                 print("Send Invitation")
-    
-                if UserDefaults.standard.object(forKey: "InvitationKey") != nil {
-                    
-                    let urlString = "https://edit.meridianapps.com/sharing/invites/" +  (UserDefaults.standard.value(forKey: "InvitationKey") as! String)
-                    let name = URL(string: urlString )
-                    let objectsToShare = [name]
-                    let activityVC = UIActivityViewController(activityItems: objectsToShare as [Any], applicationActivities: nil)
-                    
-                    self.present(activityVC, animated: true, completion: nil)
+                
+                let count = manager.invites.count
+                self.inviteKey = manager.invites[count - 1].key
+               if let url = getInvite()?.shareURL {
+                    let activityController = UIActivityViewController.init(activityItems: [url], applicationActivities: nil)
+                    present(activityController, animated: true, completion: nil)
                 }
                 else {
                     self.showAlert(title: "Alert", message: "You don't have any invitation link to share", noOfButton: 1)
@@ -322,11 +339,18 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
             
         case .friends:
             if indexPath.row < manager.friends.count {
-                let profileController = MSProfileTableViewController()
-                profileController.manager = manager
-                profileController.friend = manager.friends[indexPath.row]
-                profileController.edgesForExtendedLayout = []
-                navigationController?.pushViewController(profileController, animated: true)
+//                let profileController = MSProfileTableViewController()
+//                profileController.manager = manager
+//                profileController.friend = manager.friends[indexPath.row]
+//                profileController.edgesForExtendedLayout = []
+//                navigationController?.pushViewController(profileController, animated: true)
+                
+                let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                profileVC.manager = manager
+                profileVC.friend = manager.friends[indexPath.row]
+                profileVC.edgesForExtendedLayout = []
+                navigationController?.pushViewController(profileVC, animated: true)
+                
             }
         case .invites:
             if indexPath.row < manager.invites.count {
@@ -336,6 +360,8 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
 //                navigationController?.pushViewController(inviteController, animated: true)
 
                 let inviteVC = self.storyboard?.instantiateViewController(withIdentifier: "InviteController") as! InviteController
+                inviteVC.manager = manager
+                inviteVC.inviteKey = manager.invites[indexPath.row].key
                 self.navigationController?.pushViewController(inviteVC, animated: true )
 
             }
@@ -404,9 +430,6 @@ extension FindFriendsController : UITableViewDataSource,UITableViewDelegate {
         }
         
     }
-    
-   
-
 }
 extension FindFriendsController : MRSharingSessionDelegate {
     

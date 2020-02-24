@@ -46,6 +46,7 @@ class ProfileController: UIViewController,UIImagePickerControllerDelegate, UINav
         
         headerView = HeaderView.instanceFromNib() as! HeaderView
         headerView.frame = CGRect(x:0, y: 0, width:self.view.frame.size.width, height: 70)
+        headerView.titlelbl.text = "View Profile"
         self.view.addSubview(headerView)
         
          NotificationCenter.default.addObserver(self, selector: #selector(self.backButtonAction(notification:)), name: Notification.Name("BackButtonAction"), object: nil)
@@ -138,31 +139,31 @@ extension ProfileController : UITableViewDataSource,UITableViewDelegate {
         cell.contentView.backgroundColor = .clear
         
         
+        cell.titlelbl?.text = tableLayout[indexPath.row].rawValue + " : "
         if let profile = getProfile() {
             switch tableLayout[indexPath.row] {
             case .key:
-               // cell.detailTextLabel?.text = profile.key?.identifier
-                cell.showlbl.text = tableLayout[indexPath.row].rawValue + " : " + ( profile.key?.identifier ?? " " )
+                cell.descriptionlbl?.text = profile.key?.identifier
             case .name:
-                cell.showlbl.text =  tableLayout[indexPath.row].rawValue + " : " + ( profile.name ?? " " )
+                cell.descriptionlbl?.text = profile.name
             case .profileImage:
-                cell.showlbl?.text =  tableLayout[indexPath.row].rawValue + " : " + ( profile.imageURL?.absoluteString ?? " " )
+                cell.descriptionlbl?.text = profile.imageURL?.absoluteString
             case .sharing:
-                cell.showlbl?.text =  tableLayout[indexPath.row].rawValue + " : " + (profile.sharing ? "Yes" : "No")
+                cell.descriptionlbl?.text = profile.sharing ? "Yes" : "No"
             case .point:
-                cell.showlbl?.text = tableLayout[indexPath.row].rawValue + " : "
                 if let location = profile.location {
-                    cell.showlbl?.text = tableLayout[indexPath.row].rawValue + " : " +  (NSCoder.string(for: location.point))
+                    cell.descriptionlbl?.text = NSCoder.string(for: location.point)
                 }
             case .timestamp:
-                cell.showlbl?.text = tableLayout[indexPath.row].rawValue + " : " + ( profile.location?.timestamp.description ?? " ")
+                cell.descriptionlbl?.text = profile.location?.timestamp.description
             case .distance:
-                cell.showlbl?.text =  tableLayout[indexPath.row].rawValue + " : " + (profile.travelDistance?.description ?? " ")
+                cell.descriptionlbl?.text = profile.travelDistance?.description
             case .travelTime:
-                cell.showlbl?.text = tableLayout[indexPath.row].rawValue + " : " + ( profile.travelTime?.description ?? " ")
+                cell.descriptionlbl?.text = profile.travelTime?.description
             }
-            cell.showlbl.tintColor = .white
         }
+            cell.descriptionlbl.tintColor = .white
+        
         return cell
     }
     
@@ -254,4 +255,13 @@ extension ProfileController : UITableViewDataSource,UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        if indexPath.row == 2 {
+            return 100
+        }
+        else {
+            return 50
+        }
+    }
 }

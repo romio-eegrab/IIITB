@@ -186,12 +186,12 @@ extension RegistrationController : UITableViewDataSource,UITableViewDelegate {
        // let cell =
            let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
         if tableView == yearTblview {
-             cell.showlbl.text = yearArr[indexPath.row]
+             cell.descriptionlbl.text = yearArr[indexPath.row]
         }
         else {
-             cell.showlbl.text = courseArr[indexPath.row]
+             cell.descriptionlbl.text = courseArr[indexPath.row]
         }
-       
+       cell.titlelbl.isHidden = true
         cell.selectionStyle = .none
         return cell
     }
